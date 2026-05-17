@@ -46,6 +46,24 @@ function jogo(){
     //fundo do jogo
     ctx.drawImage(bg,0,0)
 
+    // criando canos
+    for(let i = 0; i< cano.length; i++){
+        //posição do cano de baixo
+        constant = canocima.height + eec;
+        //configurando cano de cima
+        ctx.drawImage(canocima,cano[i].x,cano[i].y);
+        //configurando cano baixo
+        ctx.drawImage(canobaixo,cano[i].x,cano[i].y+constant)
+        // movimentação do cano
+        cano[i].x = cano[i].x - 1
+        if(cano[i].x == 125){
+            cano.push({
+                x : canvas.width,
+                y : Math.floor(Math.random()*canocima.height)-canocima.height
+            })
+        }
+    }
+
 
     //desenhando o chão
     ctx.drawImage(chao,0,canvas.height - chao.height);
