@@ -62,6 +62,16 @@ function jogo(){
                 y : Math.floor(Math.random()*canocima.height)-canocima.height
             })
         }
+        //passaro entre as bordas do cano
+        if(bX + bird.width >= cano[i].x && bX <= cano[i].x + canocima.width
+            //passsaro colidiu com cano de cima ou com o cano de baixo
+            && (bY <= cano[i].y + canocima.height || bY+bird.height >= cano[i].y+constant)
+            //passaro colidiu com o chão
+            || bY +bird.height >= canvas.height - chao.height){
+            location.reload();
+            }
+
+
     }
 
 
