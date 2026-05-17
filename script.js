@@ -70,8 +70,11 @@ function jogo(){
             || bY +bird.height >= canvas.height - chao.height){
             location.reload();
             }
-
-
+        if(cano[i].x == 5){
+            score = score + 1;
+            scor.play();
+        }
+ 
     }
 
 
@@ -81,6 +84,11 @@ function jogo(){
     //passaro
     ctx.drawImage(bird,bX,bY);
     bY += gravity;
+
+    // criando placar
+    ctx.fillStyle = "#000";
+    ctx.font = "20px Verdana";
+    ctx.fillText("Placar: " + score, 10,canvas.height-20);
 
     requestAnimationFrame(jogo);
 }
